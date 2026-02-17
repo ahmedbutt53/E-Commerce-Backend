@@ -1,17 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Products</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ecommerce Store</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>Product List</h1>
-    <ul>
-        <li><a href="/products/1">Product 1</a></li>
-        <li><a href="/products/2">Product 2</a></li>
-    </ul>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">🛒 ShopHub</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <form action="/products" method="GET" class="search-form">
+            <input type="text" name="search" class="search-input" placeholder="Search by name or category...">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </div>
+
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">All Products</h2>
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <span class="product-category">Electronics</span>
+                        <h3 class="product-name">Wireless Headphones</h3>
+                        <p class="product-description">Premium sound quality with active noise cancellation technology
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$99.99</span>
+                            <span class="product-stock">In Stock</span>
+                        </div>
+                        <a href="/products/1" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <span class="product-category">Fashion</span>
+                        <h3 class="product-name">Smart Watch</h3>
+                        <p class="product-description">Track your fitness goals and stay connected on the go</p>
+                        <div class="product-footer">
+                            <span class="product-price">$199.99</span>
+                            <span class="product-stock">In Stock</span>
+                        </div>
+                        <a href="/products/2" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <span class="product-category">Home</span>
+                        <h3 class="product-name">Coffee Maker</h3>
+                        <p class="product-description">Brew the perfect cup of coffee every morning with ease</p>
+                        <div class="product-footer">
+                            <span class="product-price">$79.99</span>
+                            <span class="product-stock">In Stock</span>
+                        </div>
+                        <a href="/products/3" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <span class="product-category">Electronics</span>
+                        <h3 class="product-name">Laptop Stand</h3>
+                        <p class="product-description">Ergonomic aluminum stand for better posture and comfort</p>
+                        <div class="product-footer">
+                            <span class="product-price">$49.99</span>
+                            <span class="product-stock">In Stock</span>
+                        </div>
+                        <a href="/products/4" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <span class="product-category">Fashion</span>
+                        <h3 class="product-name">Leather Wallet</h3>
+                        <p class="product-description">Handcrafted genuine leather with RFID protection</p>
+                        <div class="product-footer">
+                            <span class="product-price">$39.99</span>
+                            <span class="product-stock">In Stock</span>
+                        </div>
+                        <a href="/products/5" class="btn-view">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <span class="product-category">Home</span>
+                        <h3 class="product-name">Desk Lamp</h3>
+                        <p class="product-description">LED desk lamp with adjustable brightness and color temperature
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$29.99</span>
+                            <span class="product-stock">In Stock</span>
+                        </div>
+                        <a href="/products/6" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

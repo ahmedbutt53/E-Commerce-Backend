@@ -1,15 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Product Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Ecommerce Store</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>Product Details</h1>
-    <p>Details of the selected product.</p>
-    <a href="/products">Back to Products</a>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">🛒 ShopHub</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-detail-grid">
+
+                <div>
+                    <div class="product-detail-image"></div>
+                </div>
+
+                <div class="product-detail-info">
+                    <span class="product-category">Electronics</span>
+                    <h1>Wireless Headphones</h1>
+                    <div class="product-price">$99.99</div>
+                    <span class="product-stock">In Stock</span>
+
+                    <div class="product-detail-description">
+                        <h3>Product Description</h3>
+                        <p>
+                            Experience premium sound quality with our Wireless Headphones featuring
+                            advanced active noise cancellation technology. Perfect for music lovers,
+                            commuters, and professionals who demand the best audio experience.
+                        </p>
+                        <p>
+                            <strong>Key Features:</strong>
+                        </p>
+                        <ul>
+                            <li>Active Noise Cancellation (ANC)</li>
+                            <li>30-hour battery life</li>
+                            <li>Bluetooth 5.0 connectivity</li>
+                            <li>Premium comfort padding</li>
+                            <li>Built-in microphone for calls</li>
+                        </ul>
+                    </div>
+
+                    <a href="/products" class="btn-view">Back to Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
