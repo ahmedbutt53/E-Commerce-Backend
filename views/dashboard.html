@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ShopHub</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .dashboard-hero {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .dashboard-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-hero p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dashboard-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-card h3 {
+            font-size: 1.1rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .logout-btn:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">🛒 ShopHub</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-hero">
+        <div class="container">
+            <h1>Welcome to Dashboard 👋</h1>
+            <p>You are logged in successfully!</p>
+        </div>
+    </div>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="icon">📦</div>
+                    <h3>All Products</h3>
+                    <p>View and manage all products</p>
+                    <a href="/products" class="btn-view" style="margin-top:1rem; display:block;">Go to Products</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">➕</div>
+                    <h3>Add Product</h3>
+                    <p>Add new product to the store</p>
+                    <a href="/add-product" class="btn-view" style="margin-top:1rem; display:block;">Add Product</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">🏠</div>
+                    <h3>Home Page</h3>
+                    <p>Go back to the main store</p>
+                    <a href="/" class="btn-view" style="margin-top:1rem; display:block;">Go Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        async function logout() {
+            const response = await fetch('/logout', { method: 'POST' });
+            const data = await response.json();
+            if (data.success) window.location.href = data.redirect;
+        }
+    </script>
+</body>
+
+</html>
