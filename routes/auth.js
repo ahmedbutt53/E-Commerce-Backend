@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
         res.cookie('session', sessionCookie, {
             maxAge: expiresIn,
             httpOnly: true,
-            secure: false
+            secure: process.env.NODE_ENV === 'production'
         });
         res.json({ success: true, redirect: '/dashboard' });
     } catch (error) {
